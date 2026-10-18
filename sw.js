@@ -1,7 +1,7 @@
 // Service worker: maakt de app offline bruikbaar.
 // Dit bestand wordt gegenereerd door tools/build_sw.py; pas tools/sw.template.js aan.
 
-const CACHE = "schaaktrainer-bdd9fd7269"
+const CACHE = "schaaktrainer-354f90aebc"
 const ASSETS = [
     "./",
     "css/app.css",
@@ -12,10 +12,14 @@ const ASSETS = [
     "index.html",
     "js/app.js",
     "js/board.js",
+    "js/drill-player.js",
     "js/engine.js",
     "js/explain.js",
+    "js/lessons-data.js",
+    "js/lessons.js",
     "js/play.js",
     "js/progress.js",
+    "js/puzzle-player.js",
     "js/puzzles.js",
     "js/review.js",
     "js/storage.js",

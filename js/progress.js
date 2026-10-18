@@ -3,14 +3,17 @@
 import * as store from "./storage.js"
 import {THEMES} from "./themes.js"
 import {dueCount} from "./puzzles.js"
+import {LESSONS, THEME_LESSON} from "./lessons-data.js"
 import {$} from "./ui.js"
 
 let root = null
 let onReview = null
+let onLesson = null
 
-export function init(container, {review}) {
+export function init(container, {review, lesson}) {
     root = container
     onReview = review
+    onLesson = lesson
 }
 
 const WEEKDAYS = ["zo", "ma", "di", "wo", "do", "vr", "za"]
@@ -47,6 +50,8 @@ export function show() {
     const w = games.filter((g) => g.result === "win").length
     const d = games.filter((g) => g.result === "draw").length
     const l = games.filter((g) => g.result === "loss").length
+    const lessonsPassed = LESSONS.filter((l) => st.lessons[l.id]?.passed).length
+    const nextLesson = LESSONS.find((l) => !st.lessons[l.id]?.passed)
     const learned = Object.values(st.puzzles).filter((p) => p.fails > 0 && !p.due).length
 
     root.innerHTML = `
@@ -55,6 +60,14 @@ export function show() {
                 <div class="streak">🔥 ${streak}</div>
                 <p>${streak === 0 ? "Train vandaag om een reeks te beginnen." : `dag${streak === 1 ? "" : "en"} op rij getraind`}</p>
                 <div class="week">${week.map((x) => `<div class="day ${x.goal ? "goal" : x.active ? "active" : ""}"><span></span>${x.label}</div>`).join("")}</div>
+            </div>
+            <div class="card">
+                <h3>Leertraject</h3>
+                <div class="stats">
+                    <div><div class="stat">${lessonsPassed}/${LESSONS.length}</div><div class="muted">lessen beheerst</div></div>
+                </div>
+                <div class="progress"><div class="progress-bar" style="width:${lessonsPassed / LESSONS.length * 100}%"></div></div>
+                ${nextLesson ? `<button class="game-row lesson-link" data-id="${nextLesson.id}">Volgende: ${nextLesson.title}<span>Open ›</span></button>` : ""}
             </div>
             <div class="card">
                 <h3>Puzzels</h3>
@@ -73,6 +86,7 @@ export function show() {
                         <div class="theme-row-head"><b>${THEMES[x.t].name}</b><span>${x.pct}% goed</span></div>
                         <div class="bar"><div style="width:${x.pct}%"></div></div>
                         <p class="muted small">${THEMES[x.t].tip}</p>
+                        ${THEME_LESSON[x.t] ? `<button class="btn link lesson-link" data-id="${THEME_LESSON[x.t]}">Herhaal de les ›</button>` : ""}
                     </div>`).join("")}
             </div>
             <div class="card">
@@ -93,7 +107,8 @@ export function show() {
             </div>
             <button class="btn link danger reset">Alle voortgang wissen</button>
         </div>`
-    root.querySelectorAll(".game-row").forEach((b) => b.onclick = () => onReview(+b.dataset.i))
+    root.querySelectorAll(".lesson-link").forEach((b) => b.onclick = () => onLesson(b.dataset.id))
+    root.querySelectorAll(".game-row[data-i]").forEach((b) => b.onclick = () => onReview(+b.dataset.i))
     $(".reset", root).onclick = () => {
         if (confirm("Alle voortgang wissen? Dit kan niet ongedaan worden gemaakt.")) {
             store.reset()

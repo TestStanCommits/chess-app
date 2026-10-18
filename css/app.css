@@ -239,3 +239,55 @@ ul.plain li, ol.plain li { margin: 4px 0; }
     z-index: 20;
 }
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* Leertraject */
+.lesson-list { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.lesson-row {
+    display: flex; align-items: center; gap: 10px;
+    border: 0; background: var(--bg); border-radius: 10px;
+    padding: 10px 12px; min-height: 52px; text-align: left; width: 100%;
+}
+.lesson-row .no {
+    flex: none; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--card); display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: var(--primary);
+}
+.lesson-row .lt { flex: 1; }
+.badge { flex: none; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 99px; background: var(--line); color: var(--muted); }
+.badge.ok { background: var(--good-bg); color: var(--good); }
+.badge.next { background: var(--primary); color: var(--primary-text); }
+button.card { border: 0; width: 100%; text-align: left; font: inherit; color: inherit; }
+
+.ls-head { display: flex; flex-direction: column; gap: 4px; padding-bottom: 8px; }
+.ls-head .ls-back { align-self: flex-start; }
+.ls-steps { display: flex; background: var(--line); border-radius: 12px; padding: 3px; }
+.ls-steps button { flex: 1; border: 0; background: none; padding: 10px 2px; min-height: 44px; border-radius: 10px; font-size: 15px; }
+.ls-steps button.active { background: var(--card); font-weight: 700; box-shadow: 0 1px 2px rgba(0, 0, 0, .1); }
+
+.goal { background: var(--bg); border-radius: 10px; padding: 10px 12px; }
+.rule {
+    border-left: 4px solid var(--primary);
+    background: var(--good-bg);
+    border-radius: 0 10px 10px 0;
+    padding: 10px 12px;
+    margin: 12px 0 4px;
+    font-weight: 600;
+}
+.rule-label { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--primary); margin-bottom: 2px; }
+table.values { border-collapse: collapse; margin: 8px 0; min-width: 60%; }
+table.values td { padding: 6px 12px; border-bottom: 1px solid var(--line); }
+table.values td:last-child { font-weight: 700; text-align: right; }
+figure { margin: 12px 0; }
+figure .diagram { width: 100%; max-width: 320px; margin: 0 auto; }
+figcaption { text-align: center; font-size: 14px; color: var(--muted); margin-top: 6px; }
+.literature p { margin: 4px 0 0; font-size: 15px; }
+.san { white-space: nowrap; }
+.ex-text { margin-bottom: 4px; min-height: 90px; }
+.ex-tabs { margin-top: 0; }
+.btn:disabled { opacity: .4; }
+.book { padding: 10px 0; border-top: 1px solid var(--line); }
+.book p { margin: 4px 0 0; font-size: 15px; }
+.dr-title { margin-bottom: 2px; }
+.ls-voorbeeld .board-wrap { max-width: min(100%, calc(100dvh - 430px)); }
+.ls-voorbeeld .ex-text { margin-bottom: 8px; min-height: 0; padding: 12px 14px; }
+.ls-voorbeeld .ex-text p { margin: 2px 0; }

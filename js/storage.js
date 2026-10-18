@@ -8,6 +8,7 @@ const DEFAULTS = {
     puzzles: {},             // id -> {box, due, fails, seen}
     themes: {},              // thema -> {ok, fail}
     days: {},                // "2026-10-18" -> {puzzles, correct, games, session}
+    lessons: {},             // les-id -> {best, passed, attempts, date}
     botLevel: 2,
     games: [],               // laatste partijen
     currentGame: null,       // partij in uitvoering
