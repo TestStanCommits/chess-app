@@ -5,6 +5,7 @@ const CACHE = "schaaktrainer-bdd9fd7269"
 const ASSETS = [
     "./",
     "css/app.css",
+    "data/puzzles.json",
     "icons/apple-touch-icon.png",
     "icons/icon-192.png",
     "icons/icon-512.png",
