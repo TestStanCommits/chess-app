@@ -1,0 +1,17 @@
+{
+    "name": "Schaaktrainer",
+    "short_name": "Schaak",
+    "description": "Gratis schaaktraining: dagelijkse puzzels, spelen tegen de computer en uitleg bij je fouten.",
+    "lang": "nl",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#f3f1ec",
+    "theme_color": "#2f5d50",
+    "icons": [
+        {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+        {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+        {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+    ]
+}

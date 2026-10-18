@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+    <title>Schaaktrainer</title>
+    <meta name="description" content="Gratis schaaktraining: dagelijkse puzzels, spelen tegen de computer en uitleg bij je fouten.">
+    <meta name="theme-color" content="#2f5d50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Schaak">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" href="icons/icon-192.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="vendor/cm-chessboard/assets/chessboard.css">
+    <link rel="stylesheet" href="vendor/cm-chessboard/assets/extensions/markers/markers.css">
+    <link rel="stylesheet" href="vendor/cm-chessboard/assets/extensions/arrows/arrows.css">
+    <link rel="stylesheet" href="vendor/cm-chessboard/assets/extensions/promotion-dialog/promotion-dialog.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <header class="topbar"><h1 id="title">Schaaktrainer</h1></header>
+    <main>
+        <section id="view-puzzles" hidden></section>
+        <section id="view-play" hidden></section>
+        <section id="view-progress" hidden></section>
+        <section id="view-review" hidden></section>
+    </main>
+    <nav class="tabbar">
+        <button data-view="puzzles"><span class="ico">🧩</span>Puzzels</button>
+        <button data-view="play"><span class="ico">&#x265E;&#xFE0E;</span>Spelen</button>
+        <button data-view="progress"><span class="ico">📈</span>Voortgang</button>
+    </nav>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
